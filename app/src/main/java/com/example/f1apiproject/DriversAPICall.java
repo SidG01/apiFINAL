@@ -1,12 +1,8 @@
 package com.example.f1apiproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -19,51 +15,34 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Drivers extends AppCompatActivity {
-    String myUrl = "https://ergast.com/api/f1/2021/drivers.json";
+public class DriversAPICall {
     TextView resultsTextView;
-    ProgressDialog progressDialog;
-    Button displayData;
-    DriversAPICall testing;
+    String myUrl = "";
+    ArrayList<String> driverID   = new ArrayList<>();
+    ArrayList<String> driverNum  = new ArrayList<>();
+    ArrayList<String> driverCode = new ArrayList<>();
+    ArrayList<String> driverUrl  = new ArrayList<>();
+    ArrayList<String> driverGname = new ArrayList<>();
+    ArrayList<String> driverFName = new ArrayList<>();
+    ArrayList<String> driverDOB   = new ArrayList<>();
+    ArrayList<String> driverNat   = new ArrayList<>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drivers);
 
-        resultsTextView = (TextView) findViewById(R.id.results);
-        displayData = (Button) findViewById(R.id.displayData);
-        testing = new DriversAPICall("https://ergast.com/api/f1/2021/drivers.json");
+    public DriversAPICall(String url) {
+        myUrl = url;
+        DriversAPICall.MyAsyncTasks myAsyncTasks = new DriversAPICall.MyAsyncTasks();
+        myAsyncTasks.execute();
     }
-    public void back(View view) {
-        finish();
-        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-    }
 
-
-    public void run(View view) {
-//        MyAsyncTasks myAsyncTasks = new MyAsyncTasks();
-//        myAsyncTasks.execute();
-        System.out.println(testing.getDriverFName().get(5));
-    }
     public class MyAsyncTasks extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // display a progress dialog for good user experiance
-            progressDialog = new ProgressDialog(Drivers.this);
-            progressDialog.setMessage("processing results");
-            progressDialog.setCancelable(false);
-            progressDialog.show();
-        }
-        // display a progress dialog to show the user what is happening
 
+        }
 
         @Override
         protected String doInBackground(String... params) {
-
-            // Fetch data from the API in the background.
-
             String result = "";
             try {
                 URL url;
@@ -106,32 +85,68 @@ public class Drivers extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
+
             // dismiss the progress dialog after receiving data from API
-            progressDialog.dismiss();
             try {
+
                 JSONObject jsonObject = new JSONObject(s);
                 JSONObject mrDataObject = jsonObject.getJSONObject("MRData");
-                JSONObject driverTableObj = mrDataObject.getJSONObject("RaceTable");
+                JSONObject driverTableObj = mrDataObject.getJSONObject("DriverTable");
                 JSONArray jsonArray1 = driverTableObj.getJSONArray("Drivers");
                 String my_users = "";
 
                 for (int i = 0; i < jsonArray1.length(); i++) {
                     JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
-                    String id = jsonObject1.getString("permanentNumber");
-                    String name = jsonObject1.getString("driverId");
-                    my_users = my_users + "User ID: " + id + "\n" + "Name: " + name + "\n\n";
+                    driverID.add(jsonObject1.getString("driverId"));
+                    driverNum.add(jsonObject1.getString("permanentNumber"));
+                    driverCode.add(jsonObject1.getString("code"));
+                    driverUrl.add(jsonObject1.getString("url"));
+                    driverGname.add(jsonObject1.getString("givenName"));
+                    driverFName.add(jsonObject1.getString("familyName"));
+                    driverDOB.add(jsonObject1.getString("dateOfBirth"));
+                    driverNat.add(jsonObject1.getString("nationality"));
                 }
+                //Show the Textview after fetching data
+                //resultsTextView.setVisibility(View.VISIBLE);
+                System.out.println(driverFName.get(5));
+                //Display data with the Textview
+                //resultsTextView.setText(my_users);
 
-                resultsTextView.setVisibility(View.VISIBLE);
-                resultsTextView.setText(my_users);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
+    public ArrayList<String> getDriverCode() {
+        return driverCode;
+    }
 
+    public ArrayList<String> getDriverDOB() {
+        return driverDOB;
+    }
 
+    public ArrayList<String> getDriverFName() {
+        return driverFName;
+    }
 
+    public ArrayList<String> getDriverGname() {
+        return driverGname;
+    }
+
+    public ArrayList<String> getDriverID() {
+        return driverID;
+    }
+
+    public ArrayList<String> getDriverNat() {
+        return driverNat;
+    }
+
+    public ArrayList<String> getDriverNum() {
+        return driverNum;
+    }
+
+    public ArrayList<String> getDriverUrl() {
+        return driverUrl;
+    }
 }
