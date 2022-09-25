@@ -38,7 +38,6 @@ public class DriversAPICall {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
         }
 
         @Override

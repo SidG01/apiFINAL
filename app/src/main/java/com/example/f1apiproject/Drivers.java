@@ -89,7 +89,7 @@ public class Drivers extends AppCompatActivity {
     public void Display(DriversAPICall year, int index) {
         Resources resources = getResources();
         int resourceId = 0;
-        idtxt.setText("iD: " + year.getDriverID().get(index));
+        idtxt.setText("iD: " + year.getDriverGname().get(index) + year.getDriverFName());
         dobtxt.setText("DOB: "+year.getDriverDOB().get(index));
         numtxt.setText("PNUM: "+ year.getDriverNum().get(index));
         nattxt.setText("NAT: "+year.getDriverNat().get(index));
