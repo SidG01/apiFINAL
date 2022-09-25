@@ -21,25 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/displayData"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="103dp"
-        android:onClick="run"
-        android:text="Click to Show  Users"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="410dp"
-        android:layout_height="541dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="416dp"
+        android:layout_height="540dp"
         android:layout_marginTop="180dp"
         android:background="#FFFFFF"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -51,5 +40,243 @@
             android:textSize="18sp"
             android:visibility="visible" />
     </ScrollView>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="424dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="100dp"
+        android:visibility="gone"
+        app:columnCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="4">
+
+        <Button
+            android:id="@+id/displayData2022"
+            android:layout_margin="10sp"
+            android:backgroundTint="#00FFFF"
+            android:onClick="run"
+            android:text="2022"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2021"
+            android:layout_margin="10sp"
+            android:backgroundTint="#40E0D0"
+            android:onClick="run"
+            android:text="2021"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2020"
+            android:layout_margin="10sp"
+            android:backgroundTint="#00BEE6"
+            android:onClick="run"
+            android:text="2020"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2019"
+            android:layout_margin="10sp"
+            android:backgroundTint="#C6E2FF"
+            android:onClick="run"
+            android:text="2019"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2018"
+            android:layout_margin="10sp"
+            android:backgroundTint="#F6546A"
+            android:onClick="run"
+            android:text="2018"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2017"
+            android:layout_margin="10sp"
+            android:backgroundTint="#FF7373"
+            android:onClick="run"
+            android:text="2017"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2016"
+            android:layout_margin="10sp"
+            android:backgroundTint="#FF6666"
+            android:onClick="run"
+            android:text="2016"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/displayData2015"
+            android:layout_margin="10sp"
+            android:backgroundTint="#FA8072"
+            android:onClick="run"
+            android:text="2015"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="DRIVERS"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/driverimgV"
+        android:layout_width="142dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="112dp"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/maxver" />
+
+    <TextView
+        android:id="@+id/idtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="356dp"
+        android:text="ID"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dobtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="440dp"
+        android:text="DOB"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/urltxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="596dp"
+        android:text="URL"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="356dp"
+        android:text="NUM"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nattxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="520dp"
+        android:text="NAT"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nametxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="284dp"
+        android:text="NAME"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nextbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="72dp"
+        android:onClick="clickNext"
+        android:text="NEXT"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/prevbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="72dp"
+        android:onClick="clickPrev"
+        android:text="PREV"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

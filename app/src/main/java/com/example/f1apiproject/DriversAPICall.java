@@ -97,18 +97,23 @@ public class DriversAPICall {
 
                 for (int i = 0; i < jsonArray1.length(); i++) {
                     JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
-                    driverID.add(jsonObject1.getString("driverId"));
-                    driverNum.add(jsonObject1.getString("permanentNumber"));
-                    driverCode.add(jsonObject1.getString("code"));
-                    driverUrl.add(jsonObject1.getString("url"));
-                    driverGname.add(jsonObject1.getString("givenName"));
-                    driverFName.add(jsonObject1.getString("familyName"));
-                    driverDOB.add(jsonObject1.getString("dateOfBirth"));
-                    driverNat.add(jsonObject1.getString("nationality"));
+                    if(myUrl == "https://ergast.com/api/f1/2017/drivers.json" && i == 3) {
+                        i++;
+                    }
+                    else  {
+                        driverID.add(jsonObject1.getString("driverId"));
+                        driverNum.add(jsonObject1.getString("permanentNumber"));
+                        driverCode.add(jsonObject1.getString("code"));
+                        driverUrl.add(jsonObject1.getString("url"));
+                        driverGname.add(jsonObject1.getString("givenName"));
+                        driverFName.add(jsonObject1.getString("familyName"));
+                        driverDOB.add(jsonObject1.getString("dateOfBirth"));
+                        driverNat.add(jsonObject1.getString("nationality"));
+                    }
                 }
                 //Show the Textview after fetching data
                 //resultsTextView.setVisibility(View.VISIBLE);
-                System.out.println(driverFName.get(5));
+                System.out.println(driverFName.get(0));
                 //Display data with the Textview
                 //resultsTextView.setText(my_users);
 
