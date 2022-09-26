@@ -19,7 +19,7 @@ public class SImAPICall {
     ArrayList<String> DriverNames = new ArrayList<>();
     ArrayList<String> DriverTimes = new ArrayList<>();
     ArrayList<String> newDriverTime = new ArrayList<>();
-    ArrayList<Integer> DriverTimeINT  = new ArrayList<>();
+    ArrayList<Double> DriverTimeDOUBLE  = new ArrayList<>();
     public SImAPICall(String url) {
         myUrl  = url;
         MyAsyncTasks myAsyncTasks = new MyAsyncTasks();
@@ -105,10 +105,17 @@ public class SImAPICall {
                     my_users = my_users + DriverNames.get(i) + " Time: " + DriverTimes.get(i) + "\n";
                 }
                 for(int i = 0; i<DriverTimes.size(); i++)  {
+
+                    double seconds = 0;
+
                     newDriverTime.add(DriverTimes.get(i).substring(0,1) + DriverTimes.get(i).substring(2,4) + DriverTimes.get(i).substring(5));
-                    DriverTimeINT.add(Integer.valueOf(newDriverTime.get(i)));
+
+                    seconds = seconds + Integer.parseInt(DriverTimes.get(i).substring(0,1)) * 60;
+                    seconds = seconds + Integer.parseInt( DriverTimes.get(i).substring(2,4));
+
+                    DriverTimeDOUBLE.add(seconds);
                 }
-                System.out.println(DriverTimeINT);
+                System.out.println(DriverTimeDOUBLE);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -117,8 +124,8 @@ public class SImAPICall {
 
     }
 
-    public ArrayList<Integer> getDriverTimeINT() {
-        return DriverTimeINT;
+    public ArrayList<Double> getDriverTimeDOUBLE() {
+        return DriverTimeDOUBLE;
     }
 
     public ArrayList<String> getDriverNames() {
